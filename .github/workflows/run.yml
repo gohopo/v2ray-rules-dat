@@ -178,7 +178,7 @@ jobs:
       - name: Build geosite.dat file
         run: |
           cd custom || exit 1
-          go run ./ --datapath=../community/data
+          go run ./ --datapath=../community/data --exportlists=category-ads-all,tld-cn,cn,geolocation-cn,tld-!cn,geolocation-!cn,private,apple,icloud,google,steam,go-proxy
 
       - name: Move and zip files and generate sha256 hash
         run: |
