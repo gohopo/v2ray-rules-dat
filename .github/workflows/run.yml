@@ -182,6 +182,13 @@ jobs:
           sha256sum geosite.dat > geosite.dat.sha256sum
           sha256sum rules.zip > rules.zip.sha256sum
 
+      - name: Delete current release assets
+        uses: andreaswilli/delete-release-assets-action@v3.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: latest
+          deleteOnlyFromDrafts: false
+
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
         with:
